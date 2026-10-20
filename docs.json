@@ -38,6 +38,13 @@
         "pages": [
           "index"
         ]
+      },
+      {
+        "group": "HID API",
+        "openapi": "https://raw.githubusercontent.com/RENE155/mintlify-app-test/1d0294e9cc9ec7e9bed06305f605ba57166f63a4/hid-tagmatrix.yaml",
+        "pages": [
+          "index"
+        ]
       }
     ]
   },
