@@ -52,6 +52,13 @@
         "pages": [
           "index"
         ]
+      },
+      {
+        "group": "HID PRE",
+        "openapi": "https://raw.githubusercontent.com/RENE155/mintlify-app-test/c36a10097d09d3691e6aa4cfe094076fc3f2ccfb/hid-prewarm-probe.yaml",
+        "pages": [
+          "index"
+        ]
       }
     ]
   },
