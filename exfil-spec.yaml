@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: Exfil Probe API
+  version: "1.0.0"
+  description: "EXFIL-PROBE-50856863 lives in info.description of the externally-hosted spec"
+paths:
+  /probe:
+    get:
+      operationId: getExfilProbe
+      summary: "EXFIL-PROBE-50856863 summary from paths./probe.get.summary"
+      description: "EXFIL-PROBE-50856863 description from paths./probe.get.description"
+      responses:
+        "200":
+          description: "EXFIL-PROBE-50856863 response description"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  echo:
+                    type: string
+                    description: "EXFIL-PROBE-50856863 schema property description"
+  /probe/echo:
+    post:
+      operationId: postExfilEcho
+      summary: "EXFIL-PROBE-50856863 summary from paths./probe/echo.post.summary"
+      description: "EXFIL-PROBE-50856863 description from paths./probe/echo.post.description"
+      responses:
+        "201":
+          description: "EXFIL-PROBE-50856863 second-op response description"
