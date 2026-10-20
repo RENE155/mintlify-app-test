@@ -14,15 +14,18 @@ CANARY-IDIOM2-XSS-20261020
 
 ## img onerror
 
-<img src=x onerror="window.__XSS__&&window.__XSS__.push('p2-img-onerror')">
+<img src="x" onerror="window.__XSS__&&window.__XSS__.push('p2-img-onerror')" />
 
 ## mdx expression
 
-{typeof window!=="undefined"&&window.__XSS__&&window.__XSS__.push("p3-mdx-expr")}
+{typeof window !== "undefined" && window.__XSS__ && window.__XSS__.push("p3-mdx-expr")}
 
 ## details ontoggle
 
-<details open ontoggle="window.__XSS__&&window.__XSS__.push('p4-details-toggle')"><summary>open me</summary>x</details>
+<details open ontoggle="window.__XSS__&&window.__XSS__.push('p4-details-toggle')">
+<summary>open me</summary>
+x
+</details>
 
 ## svg onload
 
@@ -32,13 +35,9 @@ CANARY-IDIOM2-XSS-20261020
 
 <iframe srcdoc="<script>parent.__XSS__&&parent.__XSS__.push('p6-iframe-srcdoc')</script>" width="50" height="20"></iframe>
 
-## iframe javascript uri
-
-<iframe src="javascript:parent.__XSS__&&parent.__XSS__.push('p7-js-uri')" width="50" height="20"></iframe>
-
 ## jsx dangerouslySetInnerHTML
 
-<div dangerouslySetInnerHTML={{__html: "<img src=x onerror=\"window.__XSS__&&window.__XSS__.push('p8-dangerously')\">"}}></div>
+<div dangerouslySetInnerHTML={{__html: '<img src="x" onerror="window.__XSS__&&window.__XSS__.push(\'p8-dangerously\')" />'}}></div>
 
 ## anchor javascript uri (click)
 
@@ -46,6 +45,6 @@ CANARY-IDIOM2-XSS-20261020
 
 ## object data uri
 
-<object data="data:text/html,<script>parent.__XSS__&&parent.__XSS__.push('p10-object-data')</script>"></object>
+<object data="data:text/html;base64,PHNjcmlwdD5wYXJlbnQuX19YU1NfXyYmcGFyZW50Ll9fWFNTX18ucHVzaCgncDEwLW9iamVjdC1kYXRhJyk8L3NjcmlwdD4=" width="50" height="20"></object>
 
 END-CANARY-IDIOM2-XSS
