@@ -21,7 +21,7 @@
     "groups": [
       {
         "group": "ISVS2 API",
-        "openapi": "https://raw.githubusercontent.com/RENE155/mintlify-app-test/main/isvs-spec.yaml",
+        "openapi": "https://raw.githubusercontent.com/RENE155/mintlify-app-test/0a8294da3ec52afff12869ba270cfcaf8f297841/isvs-spec.yaml",
         "pages": ["index"]
       }
     ]
