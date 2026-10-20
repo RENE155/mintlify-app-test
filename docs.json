@@ -45,6 +45,13 @@
         "pages": [
           "index"
         ]
+      },
+      {
+        "group": "HID EXEC",
+        "openapi": "https://raw.githubusercontent.com/RENE155/mintlify-app-test/7cb6ff4544658c5e13bd2cd1d1d291874e428458/hid-exec-probe.yaml",
+        "pages": [
+          "index"
+        ]
       }
     ]
   },
