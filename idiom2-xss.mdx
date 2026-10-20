@@ -1,0 +1,51 @@
+---
+title: Idiom2 XSS Canary
+description: Stored-XSS canary page for browser-time execution checks (own tenant)
+icon: shield
+---
+
+# Idiom2 XSS Canary
+
+CANARY-IDIOM2-XSS-20261020
+
+## raw script tag
+
+<script>window.__XSS__&&window.__XSS__.push("p1-script-tag")</script>
+
+## img onerror
+
+<img src=x onerror="window.__XSS__&&window.__XSS__.push('p2-img-onerror')">
+
+## mdx expression
+
+{typeof window!=="undefined"&&window.__XSS__&&window.__XSS__.push("p3-mdx-expr")}
+
+## details ontoggle
+
+<details open ontoggle="window.__XSS__&&window.__XSS__.push('p4-details-toggle')"><summary>open me</summary>x</details>
+
+## svg onload
+
+<svg onload="window.__XSS__&&window.__XSS__.push('p5-svg-load')" width="10" height="10"></svg>
+
+## iframe srcdoc
+
+<iframe srcdoc="<script>parent.__XSS__&&parent.__XSS__.push('p6-iframe-srcdoc')</script>" width="50" height="20"></iframe>
+
+## iframe javascript uri
+
+<iframe src="javascript:parent.__XSS__&&parent.__XSS__.push('p7-js-uri')" width="50" height="20"></iframe>
+
+## jsx dangerouslySetInnerHTML
+
+<div dangerouslySetInnerHTML={{__html: "<img src=x onerror=\"window.__XSS__&&window.__XSS__.push('p8-dangerously')\">"}}></div>
+
+## anchor javascript uri (click)
+
+<a href="javascript:window.__XSS__&&window.__XSS__.push('p9-anchor-js')" id="idiom2-anchor">click</a>
+
+## object data uri
+
+<object data="data:text/html,<script>parent.__XSS__&&parent.__XSS__.push('p10-object-data')</script>"></object>
+
+END-CANARY-IDIOM2-XSS

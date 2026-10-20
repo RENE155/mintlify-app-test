@@ -8,9 +8,20 @@
     "dark": "#15803D"
   },
   "navigation": {
-    "groups": [
+    "pages": [
       {
         "group": "Start",
+        "pages": ["index"]
+      },
+      {
+        "group": "Canary",
+        "pages": ["idiom2-xss", "isvs-inline"]
+      }
+    ],
+    "groups": [
+      {
+        "group": "ISVS2 API",
+        "openapi": "https://raw.githubusercontent.com/RENE155/mintlify-app-test/main/isvs-spec.yaml",
         "pages": ["index"]
       }
     ]

@@ -1,0 +1,25 @@
+---
+title: ISVS2 Inline MDX Semantics
+description: Pipeline-stage escape probes (IslandViaSpec build 2)
+---
+
+# ISVS2 inline page
+
+ISVS2-INLINE-9K4M plain text with template shapes: {{isvs.ivar}} ${isvsIvar} %s %d
+
+Raw JSX: <img src="https://isvs-img-inline.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/inline" />
+
+Inline expression: {1 + 1} and {globalThis.process?.version ?? 'ISVS2-INLINE-NOEVAL'}
+
+export const T = (props) => <div>{props.x}</div>
+
+<T x="ISVS2-TEMPLATE-SIMPLE" />
+
+export const C = () => {
+  const v = String(globalThis.process?.version ?? 'ISVS2-INLINE-CLIENT-NOEVAL');
+  return <div>{'ISVS2-COMPLEX-NONSIMPLE ' + v}</div>;
+};
+
+<C />
+
+Done.
