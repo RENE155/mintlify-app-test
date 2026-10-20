@@ -14,9 +14,9 @@ info:
     ```
     ISVS2-INFO-DESC-9K4M end.
   version: 1.0.0
-  externalDocs:
-    description: ISVS2-EXTDOCS-9K4M
-    url: https://isvs-extdocs.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/extdocs
+externalDocs:
+  description: ISVS2-EXTDOCS-9K4M
+  url: https://isvs-extdocs.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/extdocs
 servers:
   - url: https://isvs-servers.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/v1
     description: ISVS2-SERVERS-9K4M
