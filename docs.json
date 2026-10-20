@@ -1,0 +1,21 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "IslandViaSpec Rung 1",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Start",
+        "pages": ["index"]
+      }
+    ]
+  },
+  "packages": {
+    "ssr": true
+  }
+}
