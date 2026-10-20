@@ -11,18 +11,33 @@
     "pages": [
       {
         "group": "Start",
-        "pages": ["index"]
+        "pages": [
+          "index"
+        ]
       },
       {
         "group": "Canary",
-        "pages": ["idiom2-xss", "isvs-inline"]
+        "pages": [
+          "idiom2-xss"
+        ]
+      },
+      {
+        "group": "Escape Matrix",
+        "pages": [
+          "isvs-t-expr",
+          "isvs-t-brace",
+          "isvs-t-img",
+          "isvs-t-export"
+        ]
       }
     ],
     "groups": [
       {
         "group": "ISVS2 API",
-        "openapi": "https://raw.githubusercontent.com/RENE155/mintlify-app-test/0a8294da3ec52afff12869ba270cfcaf8f297841/isvs-spec.yaml",
-        "pages": ["index"]
+        "openapi": "https://raw.githubusercontent.com/RENE155/mintlify-app-test/9cf8eb0739081535589c09a6400a0132971ecc4d/isvs-spec-b.yaml",
+        "pages": [
+          "index"
+        ]
       }
     ]
   },
