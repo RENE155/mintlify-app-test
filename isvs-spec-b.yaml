@@ -1,0 +1,83 @@
+openapi: 3.0.4
+info:
+  title: ISVS2B escape matrix
+  version: 1.0.0
+paths:
+  /a-expr:
+    get:
+      summary: ISVS2B-A-EXPR
+      operationId: isvs2bA
+      x-mint:
+        content: |
+          ISVS2B-A-START
+
+          {1 + 1}
+
+          ISVS2B-A-END
+      responses:
+        '200':
+          description: ok
+  /b-brace:
+    get:
+      summary: ISVS2B-B-BRACE
+      operationId: isvs2bB
+      x-mint:
+        content: |
+          ISVS2B-B-START {{isvs.bx}} END
+      responses:
+        '200':
+          description: ok
+  /c-img:
+    get:
+      summary: ISVS2B-C-IMG
+      operationId: isvs2bC
+      x-mint:
+        content: |
+          ISVS2B-C-START
+
+          <img src="https://isvs-img-bc.dbbnati80pk457o9kj7gzi9wf3556qmjy.oast.site/x" />
+
+          ISVS2B-C-END
+      responses:
+        '200':
+          description: ok
+  /d-import:
+    get:
+      summary: ISVS2B-D-IMPORT
+      operationId: isvs2bD
+      x-mint:
+        content: |
+          import Evil from '/snippets/Canary.tsx'
+
+          <Evil />
+
+          ISVS2B-D-START
+      responses:
+        '200':
+          description: ok
+  /e-export:
+    get:
+      summary: ISVS2B-E-EXPORT
+      operationId: isvs2bE
+      x-mint:
+        content: |
+          ISVS2B-E-START
+
+          export const T = (props) => <div>{props.x}</div>
+
+          <T x="ISVS2B-E-TPL" />
+
+          ISVS2B-E-END
+      responses:
+        '200':
+          description: ok
+  /f-dollar:
+    get:
+      summary: ISVS2B-F-DOLLAR
+      operationId: isvs2bF
+      x-mint:
+        content: |
+          ISVS2B-F-START ${isvs.fx} %s END
+      responses:
+        '200':
+          description: ok
