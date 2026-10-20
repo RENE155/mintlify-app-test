@@ -1,0 +1,15 @@
+openapi: 3.0.4
+info:
+  title: CANARY-LEAF-SEARCH-9F3K2Q7A Probe API
+  description: |
+    CANARY-LEAF-SEARCH-9F3K2Q7A is the private content of tenant cli-auth-lab.
+  version: 1.0.0
+paths:
+  /canary:
+    get:
+      summary: CANARY-LEAF-SEARCH-9F3K2Q7A
+      description: CANARY-LEAF-SEARCH-9F3K2Q7A is the private content of tenant cli-auth-lab.
+      operationId: canaryLeafSearch9F3K2Q7A
+      responses:
+        '200':
+          description: CANARY-LEAF-SEARCH-9F3K2Q7A response
